@@ -3,15 +3,14 @@
     'use strict';
 
     /**
-     * Controlador responsável por funcionalidade de listagem.
+     * Controlador responsável por funcionalidade de listagem da agenda.
      *
-     * @author Author <Email>
+     * @author Arthur Nunes <arthurnx98@gmail.com>
      */
     angular.module('admin.agenda').controller(
         'agenda.ListCtrl',
         [
             '$scope'
-            ,'toastr'
             ,'agenda.AgendaService'
             ,Controller
         ]
@@ -21,13 +20,11 @@
      * Função de definição do controlador.
      *
      * @param $scope
-     * @param toastr
      * @param AgendaService
      * @constructor
      */
     function Controller(
          $scope
-        ,toastr
         ,AgendaService
     ) {
 
