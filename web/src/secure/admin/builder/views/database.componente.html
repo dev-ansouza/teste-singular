@@ -1,0 +1,44 @@
+<div ng-controller="builder.ComponenteListCtrl">
+<header class="panel-heading p-b">
+    <span class="h4">
+        <i class="fa fa-puzzle-piece"></i>&nbsp; Componentes ({{componentes.length}})
+    </span>
+    <button class="btn btn-addon btn-danger pull-right btn-sm " acl="c-builder-migration_componente" ng-disabled="componentes.length == 0" ng-click="createMigration()">
+        <i class="fa fa-check"></i> Criar migration
+    </button>
+</header>
+<div class="panel-body">
+    <div class="panel panel-default">
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column class="col-md-6"><span>Componente</span></th>
+                    <th md-column class="col-md-6"><span>Grupo</span></th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="componente in componentes">
+                    <td md-cell>
+                        {{componente.text}}
+                    </td>
+                    <td md-cell>
+                        {{componente.grupo || '#'}}
+                    </td>
+                </tr>
+                </tbody>
+                <tbody md-body ng-if="componentes.length == 0">
+                <tr md-row>
+                    <td colspan="6" md-cell style="text-align: center;">
+                        <h2><i class="fa fa-database"></i></h2>
+                        <h4>
+                            Nenhum componente com migration pendente foi localizado.
+                        </h4>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </div>
+</div>
+</div>

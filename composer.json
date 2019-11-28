@@ -1,0 +1,36 @@
+{
+    "type": "project",
+    "name": "singular/singular-project",
+    "description": "Projeto base Singular Framework da Net On",
+    "authors": [
+      {
+        "name": "Otávio Fernandes",
+        "email": "otavio@netonsolucoes.com.br"
+      }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+      "psr-0": {"" : "src/"}
+    },
+    "require": {
+        "singular/singular": "dev-master",
+        "singular/injector": "dev-master",
+        "singular/command": "dev-master",
+        "robmorgan/phinx": "^0.8.1",
+        "oyejorge/less.php": "v1.7.0.14",
+        "claviska/simpleimage": "^3.3",
+        "cocur/slugify": "^3.1"
+    },
+    "repositories": [
+      {
+        "type": "vcs",
+        "url": "https://github.com/singularphp/Singular"
+      },
+      {
+        "type": "vcs",
+        "url": "https://github.com/singularphp/Injector"
+      }
+    ]
+
+}

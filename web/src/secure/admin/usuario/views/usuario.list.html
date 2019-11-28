@@ -1,0 +1,68 @@
+<sng-page>
+    <sng-header>
+        <div class="font-normal h3 col-sm-6 m-t-xs">
+            <i class="fa fa-users"></i> Usuários
+        </div>
+        <div class="col-sm-6 pull-right">
+            <button type="button" class="btn btn-danger btn-addon pull-right" ui-sref="app.usuario-create" acl="f-usuarios-create">
+                <i class="fa fa-plus"></i> Novo
+            </button>
+            <button type="button" class="btn btn-addon pull-right m-r-sm" ng-class="{'btn-info': filtro.hasFilter(),'btn-default': !filtro.hasFilter()}" ng-click="filtro.open()">
+                <i class="fa fa-filter"></i> Filtrar
+            </button>
+        </div>
+    </sng-header>
+
+    <sng-content>
+        <div class="row wrapper-md">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <md-table-container>
+                        <table md-table>
+                            <thead md-head md-order="usuario.sort" md-on-reorder="reloadData">
+                            <tr md-row>
+                                <th class="col-sm-1"></th>
+                                <th md-column md-order-by="perfil"><span>Perfil</span></th>
+                                <th md-column md-order-by="nome"><span>Nome</span></th>
+                                <th md-column md-order-by="login"><span>Login</span></th>
+                                <th md-column ><span>Ativo</span></th>
+                                <th md-column><span></span></th>
+                            </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="record in records">
+                                    <td md-cell>
+                                        <a herf="" class="pull-left thumb-sm avatar m-r">
+                                            <img ng-if="record.avatar" ng-src="{{record.avatar}}" class="img-circle">
+                                            <img ng-if="!record.avatar" holder data-src="holder.js/40x40?text= &size=10" class="img-circle">
+                                        </a>
+                                    </td>
+                                    <td md-cell>
+                                        {{record.perfil}}
+                                    </td>
+                                    <td md-cell>{{record.nome}}</td>
+                                    <td md-cell>{{record.login}}</td>
+                                    <td md-cell>{{usuario.renderAtivo(record.ativo)}}</td>
+                                    <td md-cell class="action">
+                                        <md-icon ui-sref="app.usuario-show({id: record.id})">visibility</md-icon>
+                                        <md-icon ui-sref="app.usuario-edit({id: record.id})">edit</md-icon>
+                                        <md-icon ng-click="remove(record.id)">delete</md-icon>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tbody md-body ng-if="records.length == 0">
+                                <tr md-row>
+                                    <td colspan="6" md-cell style="text-align: center;">
+                                        <h2><i class="fa fa-frown-o"></i> Desculpe, nenhum registro foi encontrado.</h2>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+                    <sng-paging paging="usuario.paging" on-paginate="reloadData"></sng-paging>
+                </div>
+            </div>
+        </div>
+    </sng-content>
+</sng-page>

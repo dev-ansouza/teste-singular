@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="br" ng-app="app.login">
+<head>
+    <meta charset="utf-8" />
+    <title>Singular Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <!-- Css -->
+    [[injector.inject("css","css")]]
+
+    <!-- Less -->
+    [[injector.inject("md_less", "less", true)]]
+    [[injector.inject("app_less", "less", true)]]
+
+    <!-- Google Material Icons-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body ng-controller="ui.AppCtrl" ui-pages>
+<toaster-container></toaster-container>
+
+<div class="app" id="app" ng-class="{'app-header-fixed':app.settings.headerFixed, 'app-aside-fixed':app.settings.asideFixed, 'app-aside-folded':app.settings.asideFolded, 'app-aside-dock':app.settings.asideDock, 'container':app.settings.container}" ui-view></div>
+
+<!-- App -->
+[[injector.inject("lib")]]
+[[injector.inject("ui")]]
+[[injector.inject("login")]]
+</body>
+</html>

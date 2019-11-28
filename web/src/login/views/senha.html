@@ -1,0 +1,37 @@
+<div class="container w-xxl w-auto-xs" ng-init="app.settings.container = false;">
+    <div class="logo-login-wrapper">
+        <img src="assets/img/logo-login.png" class="logo-login">
+    </div>
+    <div class="m-b-lg">
+        <form name="reset" ng-init="isCollapsed=true">
+            <div class="card">
+                <div class="card-heading {{appSettings.titleBarColor}} primary dker">
+                    <h2 class="text-white">Recuperar senha</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row row-sm">
+                        <md-input-container class="md-icon-float col-sm-12 m-t-md m-b-sm">
+                            <label>Seu email</label>
+                            <md-icon>email</md-icon>
+                            <input ng-model="user.email" autofocus name="email" type="email" required ng-pattern="/^.+@.+\..+$/" ng-required="true">
+                            <div ng-messages="form.email.$error"  >
+                                <div ng-message-exp="['required',  'pattern']">
+                                    Você precisa informar um endereço de email válido
+                                </div>
+                            </div>
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+            <md-button class="{{appSettings.primaryButtonColor}} btn-block md-raised m-n"  ng-click="recover()" ng-disabled="form.$invalid">
+                Enviar
+            </md-button>
+            <div class="clear"></div>
+        </form>
+        <br>
+        <md-button class="{{appSettings.secondaryButtonColor}} btn-block md-raised m-n"  ui-sref="login" >
+            Voltar para o login
+        </md-button>
+    </div>
+</div>

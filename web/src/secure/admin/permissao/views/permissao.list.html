@@ -1,0 +1,80 @@
+<sng-page>
+    <sng-header>
+        <div class="font-normal h3 pull-left m-t-xs col-sm-6">
+            <i class="fa fa-lock"></i>
+            <span> Permissões de acesso</span>
+        </div>
+        <div class="col-sm-6">
+            <button ng-click="savePermissoes()" acl="f-permissoes-update" class="btn btn-addon btn-success pull-right" ng-disabled="!vm.alterado">
+                <i class="fa fa-check" ></i>
+                Salvar
+            </button>
+        </div>
+    </sng-header>
+
+    <sng-content>
+        <div class="row wrapper-md">
+            <aside class="col-md-4">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading cursor">
+                        <i class="fa fa-list"></i> Perfis de acesso
+                        <i class="pull-right fa"></i>
+                        <button class="btn btn-default btn-sm fa fa-plus pull-right" ng-click="abreModalPerfil()"></button>
+                    </div>
+                    <div class="panel-heading cursor">
+                        <input type="text" class="form-control" ng-model="query" placeholder="Filtrar...">
+                    </div>
+                    <div class="panel-body">
+                        <form class="form-horizontal">
+                            <div  class="list-group no-radius alt">
+                                <div ng-repeat="p in listaPerfil | filter:query as results">
+                                    <div class="list-group-item cursor" ng-click="onSelectPerfil(p)" ng-class="{'bg-info lt': perfil.id == p.id}">
+                                        {{p.perfil}}
+                                    </div>
+                                </div>
+                                <div class="wrapper-xs text-center" ng-if="results.length == 0">
+                                    <h4><i class="fa fa-search-minus"></i> Nenhum registro encontrado</h4>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </aside>
+
+            <section class="col-md-8">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading" ng-if="permissoes.length != 0">
+                        <span class="font-normal h4">{{nomePerfil || 'Selecione um perfil'}}</span>
+                        <div class="btn-group dropdown pull-right">
+                            <button class="btn btn-default btn-xs" data-toggle="dropdown">Ações <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li ng-if="showBtnCopiar" acl="f-permissoes-copy"><a ng-click="abreModalCopiar()"><i class="fa fa-copy"></i>&nbsp;Copiar permissões de...</a></li>
+                                <li class=divider acl="f-permissoes-copy"></li>
+                                <li acl="f-permissoes-perfil_edit"><a ng-click="editarPerfil()"><i class="fa fa-edit"></i>&nbsp;Editar perfil</a></li>
+                                <li class=divider acl="f-permissoes-perfil_edit"></li>
+                                <li acl="f-permissoes-perfil_remove"><a ng-click="removerPerfil()"><i class="fa fa-trash"></i>&nbsp;Excluir perfil</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                    <div class="table-responsive">
+                        <div>
+                            <div class="panel-body">
+                                <div js-tree="vm.treeConfig" should-apply="vm.applyModelChanges()" ng-model="vm.treeData" tree="vm.treeInstance" tree-events="select_node:vm.selectNode;deselect_node:vm.deselectNode;"></div>
+
+                                <div class="wrapper-md text-center" ng-if="permissoes.length == 0">
+                                    <h3><i class="fa fa-search-minus"></i> Nenhum registro encontrado</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </sng-content>
+</sng-page>

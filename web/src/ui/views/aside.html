@@ -1,0 +1,25 @@
+<div class="aside-wrap md-whiteframe-z1">
+  <div class="navi-wrap">
+
+    <div class="clearfix hidden-xs text-center m-b-n hidden-folded" id="aside-user">
+      <div class="dropdown wrapper" dropdown>
+        <a ui-sref="app.page.profile">
+          <span class=" m-l-n">
+            <img src="assets/img/logo-login.png" class="logo-login">
+          </span>
+        </a>
+      </div>
+    </div>
+
+    <div class="input-group wrapper m-t-n hidden-folded m-b-n" ng-if="app.settings.showFilterModule">
+      <span class="input-group-addon"><i class="fa fa-search"></i></span>
+      <input type="text" class="form-control" placeholder="Filtrar módulo" ng-model="ui.queryModulo">
+      <span class="input-group-btn">
+          <button class="btn btn-default btn-icon" type="button" ng-click="ui.queryModulo = null;" ng-hide="!ui.queryModulo.length"><i class="fa fa-times"></i></button>
+      </span>
+
+    </div>
+
+    <nav ui-nav class="navi" ng-include="'src/ui/views/menu.html'"></nav>
+  </div>
+</div>

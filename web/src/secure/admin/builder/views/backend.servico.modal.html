@@ -1,0 +1,49 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">
+            <span><i class="fa fa-cogs"></i> Novo serviço</span>
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="row m-b-n m-t-xs">
+            <form name="forms.servico" novalidate autocomplete="off">
+                <div class="form-group col-sm-12">
+                    <label class="control-label" for="pacote">Pacote </label>
+                    <select2 class="form-control no-border no-padder" autofocus id="pacote" name="pacote" ng-model="servico.pacote" required placeholder="Selecione" s2-options="pacote.name as pacote.name for pacote in listaPacotes">
+                    </select2>
+                    <ng-messages for="forms.servico.pacote.$error" role="alert" ng-if="isSubmited || forms.pacote.pacote.$touched">
+                        <ng-message when="required" class="label label-danger">Pacote é obrigatório</ng-message>
+                    </ng-messages>
+                </div>
+                <div class="form-group col-sm-12">
+                    <label class="control-label" for="servico">Serviço </label>
+                    <input class="form-control" type="text"  placeholder="Nome do serviço" id="servico" name="servico" ng-model="servico.servico" ng-maxlength="255" required>
+                    <ng-messages for="forms.servico.servico.$error" role="alert" ng-if="isSubmited || forms.servico.servico.$touched">
+                        <ng-message when="required" class="label label-danger">Servico é obrigatório</ng-message>
+                        <ng-message when="maxlength" class="label label-danger">O tamanho é 255</ng-message>
+                    </ng-messages>
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 m-t-xs">
+                <button class="btn btn-success btn-addon pull-right" ng-click="createServico()">
+                    <i class="fa fa-check"></i>
+                    <span>Salvar</span>
+                </button>
+                <button class="btn btn-default btn-addon pull-right m-r-sm" ng-click="cancel()"> <i class="fa fa-times"></i>
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

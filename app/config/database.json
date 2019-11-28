@@ -1,0 +1,9 @@
+{
+  "db.driver": "mysql",
+  "db.name": "database",
+  "db.host": "host",
+  "db.user": "user",
+  "db.pass": "pass",
+  "db.charset": "utf8",
+  "db.collation": "utf8_unicode_ci"
+}

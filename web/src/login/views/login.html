@@ -1,0 +1,52 @@
+<div class="container w-xxl w-auto-xs" ng-init="app.settings.container = false;">
+  <div class="logo-login-wrapper">
+      <img src="assets/img/logo-login.png" class="logo-login">
+  </div>
+  <div class="m-b-lg">
+    <form name="form" class="form-validation" ng-submit="login()">
+
+        <div class="card">
+            <div class="card-heading {{appSettings.titleBarColor}}">
+                <h2 class="text-white">Login</h2>
+            </div>
+            <div class="card-body">
+                <div class="row row-sm">
+                    <md-input-container class="md-icon-float col-sm-12 m-t-md m-b-sm">
+                        <label>Login</label>
+                        <md-icon>person</md-icon>
+                        <input ng-model="user.login" autofocus name="login" type="text" ng-required="true">
+                        <div ng-messages="form.login.$error"  >
+                            <div ng-message-exp="['required',  'pattern']">
+                                Login obrigatório
+                            </div>
+                        </div>
+                    </md-input-container>
+                    <md-input-container class="md-icon-float col-sm-12 m-t-md m-b-sm">
+                        <label>Senha</label>
+                        <md-icon>lock</md-icon>
+                        <input ng-model="user.senha" name="pass" type="password" ng-required="true">
+                        <div ng-messages="form.senha.$error" role="alert">
+                            <ng-message when="required">
+                                Você precisa informar a senha
+                            </ng-message>
+                        </div>
+
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+        <md-button class="{{appSettings.primaryButtonColor}} btn-block md-raised m-n" type="submit"  ng-disabled="form.$invalid || waiting">
+            <span ng-if="!waiting">Acessar</span>
+            <span ng-if="waiting">Validando...</span>
+        </md-button>
+
+        <div class="line line-dashed"></div>
+
+        <md-button class="{{appSettings.secondaryButtonColor}} btn-block md-raised m-n"  ui-sref="recover" >
+            Esqueci a senha
+        </md-button>
+
+    </form>
+  </div>
+</div>

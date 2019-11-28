@@ -1,0 +1,53 @@
+.ff-roboto{
+    font-family: 'Roboto', 'PT Sans', sans-serif;
+}
+
+.logo-login-wrapper{
+    text-align: center;
+    padding: 20px;
+}
+
+.logo-login{
+    height: 100px !important;
+}
+
+.md-body md-icon{
+    font-size: 18px;
+    cursor: pointer;
+}
+
+td.action{
+    text-align: right !important;
+    width: 120px;
+}
+
+.form-group.required:after {
+    color: #f55753;
+    content: "Obrigatório";
+    font-family: arial;
+    font-size: 9px;
+    position: absolute;
+    right: 18px;
+    top: 4px;
+}
+
+md-toolbar.md-table-toolbar.ng-hide {
+    display: none;
+}
+md-toolbar.md-table-toolbar.alternate .md-toolbar-tools {
+    color: #1e88e5;
+    font-size: 16px;
+    background-color: #e3f2fd;
+}
+md-toolbar.md-table-toolbar form {
+    margin-left: 16px;
+}
+md-toolbar.md-table-toolbar form > input {
+    width: 100%;
+    margin: 0;
+    border: none;
+    color: rgba(0, 0, 0, 0.87);
+}
+md-toolbar.md-table-toolbar form > input:focus {
+    outline: none;
+}

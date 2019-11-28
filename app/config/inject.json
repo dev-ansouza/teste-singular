@@ -1,0 +1,13 @@
+{
+  "inject.lib": "assets/lib",
+  "inject.css": "assets/css",
+  "inject.ui": "src/ui",
+  "inject.singular": "src/singular",
+  "inject.login": "src/login",
+  "inject.secure": "src/secure",
+  "inject.app_less": "assets/less/app.less",
+  "inject.md_less": "assets/less/md.less",
+  "inject.md_data_table_less": "assets/less/md-data-table/md-table.less",
+  "injector.compile": false,
+  "injector.minify": false
+}

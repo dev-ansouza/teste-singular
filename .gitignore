@@ -1,0 +1,23 @@
+# Bootstrap
+app/bootstrap*
+app/config/local.json
+
+# Symfony directories
+vendor/*
+*/logs/*
+*/cache/*
+web/uploads/*
+web/bundles/*
+web/deploy/*
+
+#phpstorm
+.idea/*
+
+# Configuration files
+app/config/parameters.ini
+app/config/parameters.yml
+
+# Composer
+composer.phar
+.c9/
+composer.lock

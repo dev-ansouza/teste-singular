@@ -1,0 +1,41 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">
+            <span><i class="fa fa-clipboard"></i> Copiar permissões de outro perfil</span>
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="row m-b-n m-t-xs">
+            <form name="forms.copiar" novalidate autocomplete="off">
+                <div class="form-group col-sm-12">
+                    <label class="control-label">Perfil de origem</label>
+                    <select2 class="form-control no-border no-padder" autofocus id="perfil" name="perfil" ng-model="copiar.perfil_id" required placeholder="Selecione" s2-options="perfil.id as perfil.perfil for perfil in listaPerfil">
+                    </select2>
+                    <ng-messages for="forms.copiar.perfil.$error" role="alert" ng-if="isSubmited || forms.copiar.perfil.$touched">
+                        <ng-message when="required" class="label label-danger">Perfil de origem é obrigatório</ng-message>
+                    </ng-messages>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 m-t-xs">
+                <button class="btn btn-info btn-addon pull-right" ng-click="copiaPermissoes()">
+                    <i class="fa fa-copy"></i>
+                    <span>Copiar</span>
+                </button>
+                <button class="btn btn-default btn-addon pull-right m-r-sm" ng-click="cancel()"> <i class="fa fa-times"></i>
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,57 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">
+            <span ng-if="viewState == 'create'"><i class="fa fa-cube"></i> Nova aplicação</span>
+            <span ng-if="viewState == 'edit'"><i class="fa fa-cube"></i> Editando aplicação</span>
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="row m-b-n m-t-xs">
+            <form name="forms.aplicacao" novalidate autocomplete="off">
+                <div class="form-group col-sm-9">
+                    <label class="control-label" for="aplicacao">Aplicação </label>
+                    <input class="form-control" type="text" autofocus placeholder="Nome da aplicação" id="aplicacao" name="aplicacao" ng-model="aplicacao.aplicacao" ng-maxlength="255" required>
+                    <ng-messages for="forms.aplicacao.aplicacao.$error" role="alert" ng-if="isSubmited || forms.aplicacao.aplicacao.$touched">
+                        <ng-message when="required" class="label label-danger">Aplicação é obrigatório</ng-message>
+                        <ng-message when="maxlength" class="label label-danger">O tamanho é 255</ng-message>
+                    </ng-messages>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label class="control-label" for="ordem">Ordem </label>
+                    <input class="form-control" type="number" placeholder="Ordem" id="ordem" name="ordem" ng-model="aplicacao.ordem" min="0" max="9999" required>
+                    <ng-messages for="forms.aplicacao.ordem.$error" role="alert" ng-if="isSubmited || forms.aplicacao.ordem.$touched">
+                        <ng-message when="required" class="label label-danger">Ordem é obrigatório</ng-message>
+                    </ng-messages>
+                </div>
+                <div class="form-group col-sm-4 m-t-n">
+                    <div class="checkbox">
+                        <label class="i-checks">
+                            <input type="checkbox" ng-model="aplicacao.ativo" ng-true-value="'1'" ng-false-value="'0'">
+                            <i></i>
+                            Aplicação está ativa
+                        </label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 m-t-xs">
+                <button class="btn btn-success btn-addon pull-right" ng-click="save()">
+                    <i class="fa fa-check"></i>
+                    <span>Salvar</span>
+                </button>
+                <button class="btn btn-default btn-addon pull-right m-r-sm" ng-click="cancel()"> <i class="fa fa-times"></i>
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

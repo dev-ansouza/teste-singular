@@ -1,0 +1,40 @@
+<div>
+    <div class="modal-header">
+        <h3 class="modal-title">
+            <span><i class="fa fa-user-circle-o"></i> Novo perfil</span>
+        </h3>
+    </div>
+    <div class="modal-body">
+        <div class="row m-b-n m-t-xs">
+            <form name="forms.perfil" novalidate autocomplete="off">
+                <div class="form-group col-sm-12">
+                    <label class="control-label" for="perfil">Perfil </label>
+                    <input class="form-control" type="text" autofocus placeholder="Nome do perfil" id="perfil" name="perfil" ng-model="perfil.perfil" ng-maxlength="255" required>
+                    <ng-messages for="forms.perfil.perfil.$error" role="alert" ng-if="isSubmited || forms.perfil.perfil.$touched">
+                        <ng-message when="required" class="label label-danger">Perfil é obrigatório</ng-message>
+                        <ng-message when="maxlength" class="label label-danger">O tamanho é 255</ng-message>
+                    </ng-messages>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col-sm-12 m-t-xs">
+                <button class="btn btn-success btn-addon pull-right" ng-click="save()">
+                    <i class="fa fa-check"></i>
+                    <span>Salvar</span>
+                </button>
+                <button class="btn btn-default btn-addon pull-right m-r-sm" ng-click="cancel()"> <i class="fa fa-times"></i>
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

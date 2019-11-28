@@ -1,0 +1,23 @@
+<div class="panel-heading">
+  <i class="fa fa-filter"></i>&nbsp;Filtrar resultados
+  <div class="btn-group pull-right btn-group-xs">
+    <button class="btn btn-xs btn-default" type="button" ng-click="Filter.clearFilter()">Limpar filtro</button>
+    <button class="btn btn-xs btn-default" type="button" ng-click="Filter.close()"><i class="fa fa-times"></i></button>
+  </div>
+</div>
+<div class="panel-body">
+  <div class="vbox">
+    <div class="row-row">
+      <div class="cell">
+        <div class="cell-inner">
+          <div class="wrapper-md">
+            <div ng-include="Filter.templateUrl"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="padder  b-t b-light text-center">
+      <button class="btn m-t-sm btn-primary btn-block" type="submit"><i class="fa fa-check pull-left"></i> Aplicar filtro</button>
+    </div>
+  </div>
+</div>

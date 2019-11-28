@@ -1,0 +1,55 @@
+<div ng-controller="builder.FrontViewListCtrl">
+<header class="panel-heading p-b">
+    <span class="h4">
+        <i class="fa fa-window-maximize"></i>&nbsp; Views
+    </span>
+    <button class="btn btn-addon btn-danger pull-right btn-sm" acl="c-builder-view" ng-click="abreModalView()">
+        <i class="fa fa-plus"></i> Nova view
+    </button>
+</header>
+<div class="panel-body">
+    <ul class="breadcrumb bg-white b-a">
+        <li class="dropdown" ng-repeat="parent in Builder.parents" ng-class="{'active': $last}" uib-dropdown>
+            <a class="dropdown-toggle" uib-dropdown-toggle ng-if="parent.name == ''">
+                <i class="fa fa-home"></i> Módulos
+            </a>
+            <a class="dropdown-toggle" uib-dropdown-toggle ng-if="parent.name != ''">
+                {{parent.name}}
+            </a>
+            <ul class="dropdown-menu" uib-dropdown-menu >
+                <li ng-click="selectModulo(parent.parent)"><a>{{parent.name || 'Módulos'}}</a></li>
+                <li class="divider"></li>
+                <li ng-repeat="child in parent.childs">
+                    <a ng-click="selectModulo(child)">{{child.name}}</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="panel panel-default">
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                <tr md-row>
+                    <th md-column class="col-md-9"><span>View</span></th>
+                </tr>
+                </thead>
+                <tbody md-body>
+                <tr md-row ng-repeat="view in views">
+                    <td md-cell>
+                        {{view.name}}
+                    </td>
+                </tr>
+                </tbody>
+                <tbody md-body ng-if="views.length == 0">
+                <tr md-row>
+                    <td colspan="6" md-cell style="text-align: center;">
+                        <h4><i class="fa fa-window-maximize"></i><br> Desculpe, nenhuma view foi encontrada.</h4>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+    </div>
+</div>
+</div>

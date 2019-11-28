@@ -1,0 +1,68 @@
+<sng-page>
+    <sng-header>
+        <div class="font-normal h3 pull-left m-t-xs col-sm-6">
+            <i class="fa fa-cubes"></i>
+            <span> Builder</span>
+        </div>
+    </sng-header>
+
+    <sng-content>
+        <div class="row wrapper-md">
+            <aside class="col-md-4">
+                <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <b>Backend</b>
+                        </div>
+                        <div class="list-group bg-white">
+                            <a ng-click="changePage('backend.pacote')" class="list-group-item" ng-class="{'active': currentPage == 'backend.pacote'}">
+                                <i class="fa fa-fw fa-folder-open"></i> Pacotes
+                            </a>
+                            <a ng-click="changePage('backend.controlador')" class="list-group-item" ng-class="{'active': currentPage == 'backend.controlador'}">
+                                <i class="fa fa-fw fa-cloud"></i> Controladores
+                            </a>
+                            <a ng-click="changePage('backend.servico')" class="list-group-item" ng-class="{'active': currentPage == 'backend.servico'}">
+                                <i class="fa fa-fw fa-cogs"></i> Serviços
+                            </a>
+                            <a ng-click="changePage('backend.store')" class="list-group-item" ng-class="{'active': currentPage == 'backend.store'}">
+                                <i class="fa fa-fw fa-database"></i> Stores
+                            </a>
+                        </div>
+                        <div class="panel-heading">
+                            <b>Frontend</b>
+                        </div>
+                        <div class="list-group bg-white">
+                            <a ng-click="changePage('frontend.modulo')" class="list-group-item" ng-class="{'active': currentPage == 'frontend.modulo'}">
+                                <i class="fa fa-fw fa-cubes"></i> Módulos
+                            </a>
+                            <a ng-click="changePage('frontend.controlador')" class="list-group-item" ng-class="{'active': currentPage == 'frontend.controlador'}">
+                                <i class="fa fa-fw fa-bolt"></i> Controladores
+                            </a>
+                            <a href class="list-group-item" ng-click="changePage('frontend.servico')" ng-class="{'active': currentPage == 'frontend.servico'}">
+                                <i class="fa fa-fw fa-cogs"></i> Serviços
+                            </a>
+                            <a href class="list-group-item" ng-click="changePage('frontend.view')" ng-class="{'active': currentPage == 'frontend.view'}">
+                                <i class="fa fa-fw fa-window-maximize"></i> Views
+                            </a>
+                        </div>
+                        <div class="panel-heading">
+                            <b>Database</b>
+                        </div>
+                        <div class="list-group bg-white">
+                            <a ng-click="changePage('database.menu')" class="list-group-item" ng-class="{'active': currentPage == 'database.menu'}">
+                                <i class="fa fa-fw fa-bars"></i> Migrations de Menus
+                            </a>
+                            <a ng-click="changePage('database.componente')"  class="list-group-item" ng-class="{'active': currentPage == 'database.componente'}">
+                                <i class="fa fa-fw fa-puzzle-piece"></i> Migrations de Componentes
+                            </a>
+                        </div>
+
+                </div>
+            </aside>
+
+            <section class="col-md-8">
+                <div class="panel panel-default" ng-include="getCurrentView()">
+                </div>
+            </section>
+        </div>
+    </sng-content>
+</sng-page>
