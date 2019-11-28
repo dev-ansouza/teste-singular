@@ -28,9 +28,9 @@
                             </thead>
                             <tbody md-body>
                             <tr md-row ng-repeat="record in records">
-                                <td md-cell>
-                                    column
-                                </td>
+                                <td md-cell>{{record.nome}}</td>
+                                <td md-cell>{{record.email}}</td>
+                                <td md-cell>{{record.telefone || ui-br-phone-number}}</td>
                                 <td md-cell class="action">
                                     <md-icon ui-sref="app.agenda-show({id: record.id})">visibility</md-icon>
                                     <md-icon ui-sref="app.agenda-edit({id: record.id})">edit</md-icon>

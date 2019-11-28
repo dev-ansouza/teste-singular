@@ -18,7 +18,7 @@ use Singular\Annotation\Before;
  *
  * @Controller
  *
- * @author Author <Email>
+ * @author Arthur Nunes <arthurn98@gmail.com>
  */
 class Agenda extends SingularController
 {
@@ -29,5 +29,5 @@ class Agenda extends SingularController
      *
      * @var $store
      */
-    protected $store = '';
+    protected $store = 'agenda';
 }

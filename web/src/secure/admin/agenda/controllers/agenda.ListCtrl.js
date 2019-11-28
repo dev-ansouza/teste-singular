@@ -12,9 +12,7 @@
         [
             '$scope'
             ,'toastr'
-            ,'$sngApi'
-            ,'$sngFilter'
-            ,'$sngPaging'
+            ,'agenda.AgendaService'
             ,Controller
         ]
     );
@@ -24,48 +22,40 @@
      *
      * @param $scope
      * @param toastr
-     * @param $sngApi
-     * @param $sngFilter
-     * @param $sngPaging
+     * @param AgendaService
      * @constructor
      */
     function Controller(
          $scope
         ,toastr
-        ,$sngApi
-        ,$sngFilter
-        ,$sngPaging
+        ,AgendaService
     ) {
-        /**
-         * Referência local ao serviço do filtro.
-         *
-         * @todo Alterar a url do template
-         * @type {$sngApi}
-         */
-        $scope.filtro = $sngFilter('url_template_do_filtro');
-
-        /**
-         * Referência local ao serviço da paginação.
-         *
-         * @todo Alterar a url do template
-         * @type {$sngPaging}
-         */
-        $scope.paging = $sngPaging();
 
         /**
          * Api de comunicação com o controlador no backend.
          *
-         * @todo Alterar o valor do pacote/controlador
          * @type {$sngApi}
          */
-        $scope.api = $sngApi('pacote/controlador', $scope.filtro, $scope.paging);
+        $scope.api = AgendaService.api;
 
         /**
-         * Configuração de ordenação padrão.
+         * Atalho para a propriedade filter do serviço de agenda.
          *
-         * @type {string}
+         * @type {$sngFilter}
          */
-        $scope.sort = null;
+        $scope.filtro = AgendaService.filter;
+
+        /**
+         * Atalho para a propriedade paging do serviço de agenda.
+         *
+         * @type {*|$sngApi|paging|{currentPage, pageSize}|{start, limit}|string}
+         */
+        $scope.paging = AgendaService.paging;
+
+        /**
+         * Atalho para a propriedade sort do serviço de agenda.
+         */
+        $scope.sort = AgendaService.sort;
 
         /**
          * Registros que serão exibidos na interface.
@@ -78,14 +68,24 @@
          * Inicialização do controlador.
          */
         $scope.onInit = function(){
+
             $scope.reloadData();
+
+            // evento acionado ao clicar no botão "Aplicar filtro"
+            $scope.filtro.$on('apply', $scope.reloadData);
+
+            // evento acionado ao clicar no botão "Limpar filtro"
+            $scope.filtro.$on('clear', function(){
+                $scope.reloadData();
+                $scope.filtro.close();
+            });
         };
 
         /**
          * Recarrega a lista de registros.
          */
         $scope.reloadData = function(){
-            $scope.api.find($scope.sort).then(function(results){
+            $scope.api.find($scope.api.sort).then(function(results){
                 $scope.records = results;
             });
         };

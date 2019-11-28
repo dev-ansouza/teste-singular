@@ -12,7 +12,7 @@ use Singular\Annotation\Parameter;
  *
  * @Service
  *
- * @author Author <Email>
+ * @author Arthur Nunes <arthurn98@gmail.com>
  */
 class Agenda extends SingularStore
 {
