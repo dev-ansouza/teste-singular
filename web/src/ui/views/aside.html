@@ -4,9 +4,10 @@
     <div class="clearfix hidden-xs text-center m-b-n hidden-folded" id="aside-user">
       <div class="dropdown wrapper" dropdown>
         <a ui-sref="app.page.profile">
-          <span class=" m-l-n">
-            <img src="assets/img/logo-login.png" class="logo-login">
-          </span>
+           <span>
+              <img class="w-full" ng-if="session.session.avatar" ng-src="{{session.session.avatar}}" class="logo-login">
+              <img class="w-full" ng-if="!session.session.avatar" src="assets/img/logo-login.png" class="logo-login">
+           </span>
         </a>
       </div>
     </div>

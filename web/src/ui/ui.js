@@ -26,7 +26,7 @@
             url: "",
             appName: 'Singular',
             appVersion: '2.0',
-            navbarHeaderColor: 'deep-orange',
+            navbarHeaderColor: 'bg-dark',
             headerColor: 'bg-white-only',
             navbarColor: 'bg-white',
             headerFixed: true,
