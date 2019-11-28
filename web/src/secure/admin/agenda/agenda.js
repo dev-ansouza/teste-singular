@@ -5,16 +5,10 @@
     /**
      * Módulo de frontend.
      *
-     * @author Otávio Fernandes <otavio@netonsolucoes.com.br>
+     * @author Author <Email>
      */
-    angular.module('singular.admin', [
-        ,'admin.usuario'
-        ,'admin.permissao'
-        ,'admin.componente'
-            ,'admin.menu'
-            ,'admin.builder'
-            ,'admin.agenda'
-            /*@modules*/
+    angular.module('admin.agenda', [
+        /*@modules*/
     ])
         .config(
             [
@@ -31,6 +25,14 @@
     function configFn(
         $stateProvider
     ){
+        //State da listagem da agenda
+        $stateProvider.state('app.agenda-list', {
+            url: '/admin/agenda/list',
+            acl: 'f-agenda-create',
+            controller: 'agenda.ListCtrl',
+            templateUrl: getView('agenda.list')
+        })
+        ;
     }
 
     /**
@@ -40,7 +42,7 @@
      * @returns {string}
      */
     function getView(view) {
-        return 'src/secure/admin/views/' + view + '.html';
+        return 'src//secure/admin/agenda/views/' + view + '.html';
     }
 
 }());
