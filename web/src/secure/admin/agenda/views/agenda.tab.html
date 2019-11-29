@@ -25,7 +25,7 @@
 
             <div class="form-group col-sm-4 required">
                 <label class="control-label label-sm" for="telefone">Telefone</label>
-                <input class="form-control" type="text" placeholder="(99)99999-9999" ng-disabled="viewState == 'show'" id="telefone" name="telefone" ng-model="record.telefone" ui-br-phone-number ng-minlength="14" required>
+                <input class="form-control" type="text" placeholder="(99) 99999-9999" ng-disabled="viewState == 'show'" id="telefone" name="telefone" ng-model="record.telefone" ui-br-phone-number ng-minlength="14" required>
                 <ng-messages for="forms.cliente.telefone.$error" role="alert" ng-if="isSubmited || forms.cliente.telefone.$touched">
                     <ng-message when="required" class="label label-danger">Telefone é obrigatório</ng-message>
                     <ng-message when="minlength" class="label label-danger">Telefone inválido</ng-message>

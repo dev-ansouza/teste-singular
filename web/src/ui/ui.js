@@ -24,7 +24,7 @@
         // definição de constantes de interface
         .constant('UI', {
             url: "",
-            appName: 'Singular',
+            appName: 'Teste - Singular',
             appVersion: '2.0',
             navbarHeaderColor: 'bg-dark',
             headerColor: 'bg-white-only',

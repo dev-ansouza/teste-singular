@@ -24,6 +24,13 @@ class Agenda extends SingularStore
     protected $table = 'agenda';
 
     /**
+     * Se o store irá utilizar o mecanismo de soft delete para a tabela.
+     *
+     * @var bool
+     */
+    protected $softDelete = true;
+
+    /**
      * Perfis de consulta.
      *
      * @var array

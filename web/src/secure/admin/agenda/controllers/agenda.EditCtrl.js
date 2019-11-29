@@ -3,15 +3,17 @@
     'use strict';
 
     /**
-     * Controlador responsável pela criação de cliente.
+     * Controlador responsável pela edição de cliente.
      *
      * @author Arthur Nunes <arthurnx98@gmail.com>
      */
     angular.module('admin.agenda').controller(
-        'agenda.CreateCtrl',
+        'agenda.EditCtrl',
         [
             '$scope'
             ,'toastr'
+            ,'$state'
+            ,'$stateParams'
             ,'agenda.AgendaService'
             ,Controller
         ]
@@ -22,21 +24,25 @@
      *
      * @param $scope
      * @param toastr
+     * @param $state
+     * @param $stateParams
      * @param AgendaService
      * @constructor
      */
     function Controller(
-         $scope
+        $scope
         ,toastr
+        ,$state
+        ,$stateParams
         ,AgendaService
     ) {
 
         /**
-         * Define que o formulário está em processo de criação.
+         * Define que o formulário está em processo de edição.
          *
          * @type {boolean}
          */
-        $scope.viewState = 'create';
+        $scope.viewState = 'edit';
 
         /**
          * Referência ao serviço de agenda.
@@ -62,18 +68,26 @@
         $scope.hasRecord = true;
 
         /**
-         * Registro do usuário que está sendo criado.
-         *
-         * @type {object}
+         * Armazena o ID do cliente
          */
-        $scope.record = {};
+        var id = $stateParams.id;
 
         /**
          * Inicialização do controlador.
          */
         $scope.onInit = function(){
 
+            getCliente();
         };
+
+        /**
+         * Função responsável por buscar o cliente pelo id
+         */
+        function getCliente() {
+            $scope.api.filter({id: $stateParams.id}).call('find').then(function (response) {
+                $scope.record = response.results[0];
+            })
+        }
 
         /**
          * Salva o registro de um novo cliente.
@@ -97,7 +111,7 @@
 
                     } else {
 
-                        toastr.success('Cliente inserido a agenda com sucesso!');
+                        toastr.success('Cliente atualizado com sucesso!');
 
                         $state.go('app.agenda-list');
 
